@@ -1,0 +1,199 @@
+body{
+    background-color: rgb(243, 245, 252);
+}
+
+.contenedor-header {
+    margin: 30px;
+    display: flex;
+}
+
+.contenedor-header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-header .titulo {
+    margin: 1% auto;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: #0A3871;
+    font-style: bold;
+    line-height: 100%;
+}
+
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 20px;  
+}
+
+.contenido .contenido-izquierdo {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.contenido .contenido-izquierdo input {
+    width: 350px;
+    background: rgb(243, 245, 252);
+    font-family: 'Inter';
+    font-size: 32px;
+    color:  #0A3871;
+    line-height: 150%;
+    outline: none;
+    border: 0;
+}
+
+.contenido .contenido-izquierdo input::placeholder {
+    color: #0A3871;
+    font-size: 32px;
+}
+
+.contenido .contenido-izquierdo .caja-spacio {
+    height: 200px;
+}
+
+
+.contenido .contenido-izquierdo .botones {
+    display: flex;
+    width: 350px;
+}
+
+.contenido .contenido-izquierdo .botones .alerta{
+    position: absolute;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #495057;
+}
+.contenido .contenido-izquierdo .botones button {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 15px;
+    border-radius: 24px;
+    margin-top: 25px;
+    padding: 15px;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.contenido .contenido-izquierdo .botones .encriptar {
+    background: #0A3871;
+    color: white;
+}
+
+.contenido .contenido-izquierdo .botones .desencriptar {
+    background: #D8DFE8;
+    color: #0A3871;
+    border: 1px solid #0A3871
+}
+
+.contenido .contenido-derecho {
+    background-color: white;
+    width: 350px;
+    border-radius: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    box-shadow: 0px 24px 32px -8px #00000014;
+}
+
+.contenido .contenido-derecho img {
+    display: block;
+    margin: auto;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.contenido .contenido-derecho img.ocultar {
+    display: none;
+}
+
+.contenido .contenido-derecho .titulo {
+    font-size: 24px;
+    color: #343A40;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.contenido .contenido-derecho .titulo.ocultar {
+    display: none;
+}
+
+
+.contenido .contenido-derecho .descripcion {
+    text-align: justify;
+    font-size: 16px;
+    color: #495057;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.contenido .contenido-derecho .descripcion.ocultar {
+    display: none;
+}
+
+.contenido .contenido-derecho .mensaje {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
+.contenido .contenido-derecho .mensaje #texto_traducido{
+    outline: none;
+    border: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+    color: #495057;
+    display: none;
+}
+
+.contenido .contenido-derecho .mensaje #texto_traducido.mostrar{
+    display: block;
+}
+
+.contenido .contenido-derecho .mensaje .btn-copiar.mostrar {
+    display: block;
+}
+
+.contenido .contenido-derecho .mensaje .btn-copiar {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 15px;
+    border-radius: 24px;
+    margin-top: 25px;
+    padding: 15px;
+    background: #D8DFE8;
+    color: #0A3871;
+    border: 1px solid #0A3871;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .contenido .contenido-derecho img {
+        display: none;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .contenido .contenido-izquierdo .botones {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 350px;
+    }    
+}

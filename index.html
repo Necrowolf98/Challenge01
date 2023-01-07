@@ -4,9 +4,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Encryptador</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <h1>Titulo Inicial</h1>
+    <header>
+        <div class="contenedor-header">
+            <h1 class="logo"><img src="./img/Logo_Alura.png" alt="Logo Alura"></h1>
+            <h1 class="titulo">Challenge Encryptador</h1>
+        </div>
+    </header>
+
+    <div class="contenido">
+        <div class="contenido-izquierdo">
+            <input type="text" id="texto_ingresado" placeholder="Ingrese el texto aqui">
+
+            <div class="caja-spacio">
+
+            </div>
+    
+            <div class="botones">
+                <span class="alerta">Solo letras minúsculas y sin acentos</span>
+                <button class="encriptar" type="button" onclick="traducir(true)">Encryptar</button>
+                <button class="desencriptar" type="button" onclick="traducir(false)">Desencryptar</button>
+            </div>
+        </div>
+    
+        
+        <div class="contenido-derecho">
+            <img id="img" src="./img/Munieco.png" alt="Muñeco con Lupa">
+            <h3 id="titulo" class="titulo">Ningún mensaje fue encontrado</h3>
+            <span id="descripcion" class="descripcion">Ingresa el texto que desees encriptar o desencriptar</span>
+
+            <div class="mensaje">
+                <textarea id="texto_traducido" cols="20" rows="10"></textarea>
+                <button id="btncopiar" onclick="copiar()" class="btn-copiar ">Copiar</button>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script>
+    var iscopiar = false;
+    var texto_modificado = new String();
+    function traducir(condicion) {
+        if(document.getElementById('texto_ingresado').value == ''){
+            alert('Escriba un texto primero para poder encriptar u desencriptar');
+        }else{
+            if (/[^a-z !]/.test(document.getElementById('texto_ingresado').value)) {
+                alert('Solo se admiten letras en minusculas');
+            }else{
+                iscopiar = true;
+                var isencryptar = condicion;
+                var texto_ingresado = document.getElementById('texto_ingresado').value;
+
+                    if(isencryptar){
+                        texto_modificado = texto_ingresado.replaceAll("e", "enter");
+                        texto_modificado = texto_modificado.replaceAll("i", "imes");
+                        texto_modificado = texto_modificado.replaceAll("a", "ai");
+                        texto_modificado = texto_modificado.replaceAll("o", "ober");
+                        texto_modificado = texto_modificado.replaceAll("u", "ufat");
+                    }else{
+                        texto_modificado = texto_ingresado.replaceAll("enter", "e");
+                        texto_modificado = texto_modificado.replaceAll("imes", "i");
+                        texto_modificado = texto_modificado.replaceAll("ai", "a");
+                        texto_modificado = texto_modificado.replaceAll("ober", "o");
+                        texto_modificado = texto_modificado.replaceAll("ufat", "u");
+                    }
+
+                document.getElementById('texto_traducido').innerHTML = texto_modificado;
+
+                if(iscopiar){
+                    document.querySelector('#img').classList.add('ocultar');
+                    document.querySelector('#titulo').classList.add('ocultar');
+                    document.querySelector('#descripcion').classList.add('ocultar');            
+                    document.querySelector('#texto_traducido').classList.add('mostrar');
+                    document.querySelector('#btncopiar').classList.add('mostrar');
+                }
+            }
+        }
+    }
+
+    function copiar() {
+        navigator.clipboard.writeText(texto_modificado);
+        alert('Texto copiado!');
+    }
+</script>
 </html>
